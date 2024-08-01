@@ -4,8 +4,25 @@ import { style } from "../style";
 import { fadeIn, textVariant } from "../utils/motion";
 import { projects } from "../constants";
 import WorkCard from "./WorkCard";
+import { useState } from "react";
 
 const Works = () => {
+  const INITIAL_PROJECTS_COUNTS = 6;
+  const LOAD_MORE_COUNTS = 6;
+  const [displayProjects, setDisplayProjects] = useState(
+    projects.slice(0, INITIAL_PROJECTS_COUNTS),
+  );
+
+  const handleProjectsAddition = () => {
+    setDisplayProjects((prev) => {
+      const nextIndex = prev.length;
+      const nextProjects = projects.slice(
+        nextIndex,
+        nextIndex + LOAD_MORE_COUNTS,
+      );
+      return [...prev, ...nextProjects];
+    });
+  };
   return (
     <>
       <motion.div variants={textVariant()} className="text-center md:text-left">
@@ -30,8 +47,8 @@ const Works = () => {
         effectively.
       </motion.p>
 
-      <div className="mt-14 flex flex-wrap gap-5">
-        {projects.map(
+      <div className="mt-14 flex flex-wrap gap-7">
+        {displayProjects.map(
           (
             {
               name,
@@ -58,6 +75,18 @@ const Works = () => {
           ),
         )}
       </div>
+
+      {displayProjects.length < projects.length && (
+        <div className="mt-8 flex items-center justify-center">
+          <button
+            type="button"
+            className="rounded-lg border border-identity px-7 py-3 outline-none"
+            onClick={handleProjectsAddition}
+          >
+            Load More.
+          </button>
+        </div>
+      )}
     </>
   );
 };

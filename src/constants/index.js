@@ -152,7 +152,6 @@ const projects = [
     source_code_link: "https://github.com/Ali-AK004/Travel-App",
     demo_link: "https://travel-dyy4xef88-ali-ak004s-projects.vercel.app/",
   },
-
   {
     name: "Doob | Agency Template",
     description:

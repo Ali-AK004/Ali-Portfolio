@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { external_link, github } from "../assets";
-import { motion } from "framer-motion";
-import { fadeIn } from "../utils/motion";
+import { Tilt } from "react-tilt";
 
 const WorkCard = ({
   name,
@@ -10,14 +9,16 @@ const WorkCard = ({
   image,
   source_code_link,
   demo_link,
-  index,
   progress,
 }) => {
   return (
-    <motion.div
-      className="flex w-full flex-col rounded-2xl bg-tertiary p-5 sm:w-[360px]"
-      variants={fadeIn("up", "spring", index * 0.4, 0.75)}
-      whileHover={{ y: -10, transition: { duration: 0.2 } }}
+    <Tilt
+      options={{
+        max: 30,
+        scale: 1,
+        speed: 450,
+      }}
+      className="z-30 flex w-full flex-col rounded-2xl bg-tertiary p-5 sm:w-[360px]"
     >
       <div className="relative h-[230px] w-full">
         <img
@@ -74,7 +75,7 @@ const WorkCard = ({
           ))}
         </div>
       </div>
-    </motion.div>
+    </Tilt>
   );
 };
 
