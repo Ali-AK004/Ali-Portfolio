@@ -1,28 +1,28 @@
 import {
-  mobile,
+  animatedTemplate,
   backend,
   creator,
-  web,
-  javascript,
-  typescript,
-  html,
   css,
-  reactjs,
-  photoshop,
-  premiere,
-  tailwind,
-  git,
-  figma,
-  profile,
-  threejs,
-  hilink,
   doob,
+  figma,
+  git,
+  goAcademy,
+  hilink,
+  html,
+  javascript,
   kasper,
   leon,
+  mobile,
   nord,
-  animatedTemplate,
   personalDashboard,
-  goAcademy,
+  photoshop,
+  premiere,
+  profile,
+  reactjs,
+  tailwind,
+  threejs,
+  typescript,
+  web,
 } from "../assets";
 
 export const navLinks = [
@@ -150,7 +150,7 @@ const projects = [
     ],
     image: hilink,
     source_code_link: "https://github.com/Ali-AK004/Travel-App",
-    demo_link: "https://travel-dyy4xef88-ali-ak004s-projects.vercel.app/",
+    demo_link: "https://travel-app-three-neon.vercel.app/",
   },
   {
     name: "Doob | Agency Template",
@@ -315,4 +315,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, projects };
+export { experiences, projects, services, technologies };
