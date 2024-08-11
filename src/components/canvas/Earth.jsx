@@ -1,11 +1,11 @@
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import CanvasLoader from "../Loader";
-import { OrbitControls, useGLTF } from "@react-three/drei";
 
 const Earth = () => {
   const { scene } = useGLTF("./planet/scene.gltf");
-  return <primitive object={scene} scale={2.5} />;
+  return <primitive object={scene} scale={2.8} />;
 };
 
 const EarthCanvas = () => {

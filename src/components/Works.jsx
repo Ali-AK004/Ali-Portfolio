@@ -1,10 +1,10 @@
-import { Wrapper } from "../HigherOC";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { projects } from "../constants";
+import { Wrapper } from "../HigherOC";
 import { style } from "../style";
 import { fadeIn, textVariant } from "../utils/motion";
-import { projects } from "../constants";
 import WorkCard from "./WorkCard";
-import { useState } from "react";
 
 const Works = () => {
   const INITIAL_PROJECTS_COUNTS = 6;
@@ -79,11 +79,13 @@ const Works = () => {
       {displayProjects.length < projects.length && (
         <div className="mt-8 flex items-center justify-center">
           <button
-            type="button"
-            className="rounded-lg border border-identity px-7 py-3 outline-none"
+            className="relative inline-flex h-12 overflow-hidden rounded-lg p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
             onClick={handleProjectsAddition}
           >
-            Load More.
+            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#2257bf_50%,#E2CBFF_100%)]" />
+            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center gap-3 rounded-lg bg-slate-950 px-7 py-1 text-[16px] font-medium text-white backdrop-blur-3xl">
+              Load More.
+            </span>
           </button>
         </div>
       )}

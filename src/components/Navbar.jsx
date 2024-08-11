@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
+import { FaDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { myCV } from "../assets";
 import { navLinks } from "../constants";
 import { style } from "../style";
 
@@ -12,6 +14,13 @@ const Navbar = () => {
       navRef.current.classList.toggle("openMenu");
       setOpenNav(!openNav);
     }
+  };
+  const handleDownload = () => {
+    const fileUrl = myCV;
+    const downloadTag = document.createElement("a");
+    downloadTag.href = fileUrl;
+    downloadTag.setAttribute("target", "_blank");
+    downloadTag.click();
   };
   return (
     <nav
@@ -38,7 +47,7 @@ const Navbar = () => {
             AliMo<span className="text-identity">.</span>
           </p>
         </Link>
-        <ul className="hidden items-center gap-10 sm:flex">
+        <ul className="hidden items-center gap-8 sm:flex">
           {navLinks.map(({ title, id }) => (
             <li
               key={id}
@@ -48,6 +57,16 @@ const Navbar = () => {
               <a href={`#${id}`}>{title}</a>
             </li>
           ))}
+          <button
+            className="relative inline-flex h-12 overflow-hidden rounded-lg p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+            onClick={handleDownload}
+          >
+            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#2257bf_50%,#E2CBFF_100%)]" />
+            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center gap-3 rounded-lg bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+              <FaDownload />
+              Download CV
+            </span>
+          </button>
         </ul>
 
         <div className="relative flex sm:hidden">
@@ -78,6 +97,16 @@ const Navbar = () => {
                   <a href={`#${id}`}>{title}</a>
                 </li>
               ))}
+              <button
+                className="relative inline-flex h-12 min-w-[160px] overflow-hidden rounded-2xl p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                onClick={handleDownload}
+              >
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#2257bf_50%,#E2CBFF_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center gap-3 rounded-2xl bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                  <FaDownload />
+                  Download CV
+                </span>
+              </button>
             </ul>
           </div>
         </div>
