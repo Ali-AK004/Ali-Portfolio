@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { style } from "../style";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { navLinks } from "../constants";
+import { style } from "../style";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
